@@ -43,7 +43,7 @@ public class DataStreamProcessor {
                 try {
                     curCandleCompany = companies.getByFigi(curCandle.getFigi()); //get company of candle
 
-                    //Check if candle is on new timestap for some index. Different indexes has different timeframes
+                    //Check if candle is on new timestamp for some index. Different indexes has different timeframes
                     if (checkIfNewCandleForIndex(IndexType.RSI, marketDataResponse, curCandleCompany)) {
 
                         //Sell if some deals reached stopLoss

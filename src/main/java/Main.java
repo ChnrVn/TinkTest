@@ -52,8 +52,7 @@ public class Main {
         } catch (CommandException exception) {
             Console.printError(exception.getMessage());
         } catch (ApiRuntimeException exception) {
-            Console.printError("Internal critical error, try restart");
-            exception.printStackTrace();
+            Console.printError("Internal critical error, try to reboot, please");
         }
     }
 
@@ -69,6 +68,7 @@ public class Main {
                 if (token.isEmpty()) throw new IllegalArgumentException();
 
                 api = InvestApi.create(token, appName);
+                api.getUserService().getAccountsSync();
                 break;
             } catch (IllegalArgumentException exception) {
                 Console.printError("Invalid token!");
